@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Planalto Imóveis | Projeto de demonstração</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ink:#12263A; --text:#28384A; --muted:#5B6B7A; --bg:#F5F8F7; --panel:#FFFFFF;
+  --line:#D5DEDC; --teal:#0F7C7A; --teal-d:#0A5C5A; --sun:#F2B84B; --on-sun:#2A1E00;
+  --roof:#12263A; --wall:#CFE3E0; --door:#F2B84B;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ink:#EAF2F1; --text:#C9D6D5; --muted:#93A5A4; --bg:#0E1A24; --panel:#152635;
+    --line:#2A3E4F; --teal:#4FC3BF; --teal-d:#7DDAD6; --on-sun:#2A1E00;
+    --roof:#EAF2F1; --wall:#24485A; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#EAF2F1; --text:#C9D6D5; --muted:#93A5A4; --bg:#0E1A24; --panel:#152635;
+  --line:#2A3E4F; --teal:#4FC3BF; --teal-d:#7DDAD6; --roof:#EAF2F1; --wall:#24485A; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--text);font:400 16px/1.6 "Public Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Public Sans",system-ui,sans-serif;color:var(--ink);line-height:1.1;margin:0}
+a{color:inherit}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font:700 20px "Bricolage Grotesque",sans-serif;color:var(--ink);text-decoration:none}
+.logo span{color:var(--teal)}
+nav a{font-weight:500;text-decoration:none;margin-left:18px;color:var(--text)}
+nav a:hover,nav a:focus-visible{color:var(--teal)}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.hero{padding:36px 0 28px}
+.hero h1{font-size:clamp(34px,8vw,60px);font-weight:700;max-width:14em;letter-spacing:-.02em}
+.hero p{max-width:34em;color:var(--muted);font-size:18px;margin:16px 0 0}
+.filters{margin-top:28px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px;display:grid;gap:16px}
+fieldset{border:0;padding:0;margin:0}
+legend,label.l{font-weight:600;font-size:14px;color:var(--ink);margin-bottom:8px;display:block;padding:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips input{position:absolute;opacity:0}
+.chips label{border:1.5px solid var(--line);border-radius:999px;padding:8px 16px;cursor:pointer;font-weight:500;background:var(--bg)}
+.chips input:checked+label{background:var(--teal);border-color:var(--teal);color:#fff}
+.chips input:focus-visible+label{outline:3px solid var(--sun);outline-offset:2px}
+select,input[type=text],input[type=tel],textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px}
+select:focus,input:focus,textarea:focus{outline:3px solid var(--sun);outline-offset:1px;border-color:var(--teal)}
+section{padding:28px 0}
+.head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:14px}
+.head h2{font-size:28px}
+#count{color:var(--muted);font-size:14px}
+ul.list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.item{display:grid;grid-template-columns:96px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);align-items:center}
+.item svg{width:96px;height:72px;border-radius:10px;background:var(--panel);border:1px solid var(--line)}
+.item h3{font-size:19px}
+.meta{color:var(--muted);font-size:14px;margin-top:2px}
+.price{font:700 20px "Bricolage Grotesque",sans-serif;color:var(--teal-d);margin-top:6px}
+.empty{padding:28px 0;color:var(--muted)}
+.contact{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px;display:grid;gap:14px}
+.contact h2{font-size:26px}
+.btn{font:600 16px "Public Sans",sans-serif;border:0;border-radius:12px;padding:14px 20px;cursor:pointer;background:var(--sun);color:var(--on-sun)}
+.btn:hover{filter:brightness(.95)}
+#ok{display:none;padding:12px 14px;border-radius:12px;background:var(--wall);color:var(--ink);font-weight:500}
+.err{color:#B3261E;font-size:13px;min-height:1em;margin-top:4px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .err{color:#FF9A93}}
+footer{padding:28px 0 36px;color:var(--muted);font-size:14px}
+@media (min-width:700px){.filters{grid-template-columns:2fr 1fr}.item{grid-template-columns:140px 1fr auto}.item svg{width:140px;height:96px}.price{margin:0}.contact{grid-template-columns:1fr 1fr}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="logo" href="#topo">Planalto<span>Imóveis</span></a>
+  <nav aria-label="Principal"><a href="#imoveis">Imóveis</a><a href="#contato">Contato</a></nav>
+</header>
+
+<main id="topo">
+<div class="hero">
+  <h1>Encontre o imóvel certo em Vitória da Conquista</h1>
+  <p>Casas, apartamentos e terrenos com documentação conferida. Escolha o tipo e o valor e veja as opções na hora.</p>
+
+  <form class="filters" id="filtros" onsubmit="return false" aria-label="Filtrar imóveis">
+    <fieldset>
+      <legend>Tipo de imóvel</legend>
+      <div class="chips">
+        <input type="radio" name="tipo" id="t0" value="" checked><label for="t0">Todos</label>
+        <input type="radio" name="tipo" id="t1" value="Casa"><label for="t1">Casas</label>
+        <input type="radio" name="tipo" id="t2" value="Apartamento"><label for="t2">Apartamentos</label>
+        <input type="radio" name="tipo" id="t3" value="Terreno"><label for="t3">Terrenos</label>
+      </div>
+    </fieldset>
+    <div>
+      <label class="l" for="max">Valor máximo</label>
+      <select id="max">
+        <option value="0">Sem limite</option>
+        <option value="150000">Até R$ 150 mil</option>
+        <option value="300000">Até R$ 300 mil</option>
+        <option value="500000">Até R$ 500 mil</option>
+      </select>
+    </div>
+  </form>
+</div>
+
+<section id="imoveis" aria-labelledby="h-imoveis">
+  <div class="head"><h2 id="h-imoveis">Imóveis disponíveis</h2><span id="count" aria-live="polite"></span></div>
+  <ul class="list" id="lista"></ul>
+</section>
+
+<section id="contato" aria-labelledby="h-contato">
+  <form class="contact" id="form" novalidate>
+    <div>
+      <h2 id="h-contato">Fale com um corretor</h2>
+      <p class="meta" style="font-size:16px;margin-top:8px">Deixe seu nome e telefone. Retornamos em até um dia útil.</p>
+    </div>
+    <div style="display:grid;gap:10px">
+      <div><label class="l" for="nome">Nome</label><input type="text" id="nome" autocomplete="name"><div class="err" id="e-nome"></div></div>
+      <div><label class="l" for="tel">Telefone com DDD</label><input type="tel" id="tel" autocomplete="tel" placeholder="(77) 90000-0000"><div class="err" id="e-tel"></div></div>
+      <button class="btn" type="submit">Enviar contato</button>
+      <div id="ok" role="status">Contato enviado. Em breve um corretor vai ligar para você.</div>
+    </div>
+  </form>
+</section>
+</main>
+
+<footer>Projeto de demonstração: a empresa, os imóveis e os valores são fictícios. Feito com HTML, CSS e JavaScript.</footer>
+</div>
+
+<script>
+var imoveis=[
+ {t:"Casa",n:"Casa com quintal",b:"Candeias",q:3,a:180,p:420000},
+ {t:"Apartamento",n:"Apartamento perto da UESB",b:"Universitário",q:2,a:62,p:215000},
+ {t:"Terreno",n:"Terreno plano e murado",b:"Urbis VI",q:0,a:250,p:98000},
+ {t:"Casa",n:"Casa em condomínio",b:"Alto Maron",q:4,a:240,p:690000},
+ {t:"Apartamento",n:"Apartamento de 1 quarto",b:"Centro",q:1,a:41,p:139000},
+ {t:"Terreno",n:"Lote de esquina",b:"Felícia",q:0,a:300,p:165000},
+ {t:"Casa",n:"Casa térrea reformada",b:"Brasil",q:2,a:110,p:275000}
+];
+function brl(v){return v.toLocaleString("pt-BR",{style:"currency",currency:"BRL",maximumFractionDigits:0})}
+function icone(t){
+ var s='<svg viewBox="0 0 140 96" role="img" aria-label="'+t+'">';
+ if(t==="Casa")s+='<path d="M20 52 70 18l50 34v28H20z" fill="var(--wall)"/><path d="M12 54 70 12l58 42" fill="none" stroke="var(--roof)" stroke-width="6" stroke-linejoin="round"/><rect x="60" y="54" width="20" height="26" rx="2" fill="var(--door)"/>';
+ else if(t==="Apartamento")s+='<rect x="38" y="12" width="64" height="70" rx="3" fill="var(--wall)"/><g fill="var(--roof)"><rect x="48" y="22" width="12" height="12"/><rect x="80" y="22" width="12" height="12"/><rect x="48" y="44" width="12" height="12"/><rect x="80" y="44" width="12" height="12"/></g><rect x="62" y="62" width="16" height="20" fill="var(--door)"/>';
+ else s+='<path d="M10 70 40 40h60l30 30z" fill="var(--wall)"/><path d="M10 70 40 40h60l30 30z" fill="none" stroke="var(--roof)" stroke-width="3" stroke-dasharray="6 5"/><circle cx="70" cy="56" r="5" fill="var(--door)"/>';
+ return s+'</svg>';
+}
+function render(){
+ var tipo=document.querySelector('input[name="tipo"]:checked').value;
+ var max=+document.getElementById("max").value;
+ var r=imoveis.filter(function(i){return (!tipo||i.t===tipo)&&(!max||i.p<=max)}).sort(function(a,b){return a.p-b.p});
+ document.getElementById("count").textContent=r.length+(r.length===1?" resultado":" resultados");
+ var l=document.getElementById("lista");
+ if(!r.length){l.innerHTML='<li class="empty">Nenhum imóvel com esses filtros. Aumente o valor máximo ou escolha outro tipo.</li>';return}
+ l.innerHTML=r.map(function(i){
+  var det=i.t==="Terreno"?i.a+" m²":i.q+(i.q===1?" quarto":" quartos")+" · "+i.a+" m²";
+  return '<li class="item">'+icone(i.t)+'<div><h3>'+i.n+'</h3><div class="meta">'+i.t+" em "+i.b+" · "+det+'</div></div><div class="price">'+brl(i.p)+'</div></li>';
+ }).join("");
+}
+document.getElementById("filtros").addEventListener("change",render);
+render();
+
+document.getElementById("form").addEventListener("submit",function(e){
+ e.preventDefault();
+ var n=document.getElementById("nome").value.trim(), t=document.getElementById("tel").value.replace(/\D/g,"");
+ var en=n.length<2?"Informe seu nome.":"", et=(t.length<10||t.length>11)?"Informe o telefone com DDD, com 10 ou 11 números.":"";
+ document.getElementById("e-nome").textContent=en;
+ document.getElementById("e-tel").textContent=et;
+ document.getElementById("ok").style.display=(en||et)?"none":"block";
+});
+</script>
+</body>
+</html>
