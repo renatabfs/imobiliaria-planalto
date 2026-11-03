@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Planalto Imóveis | Imóveis à venda em Vitória da Conquista</title>
+<meta name="description" content="Casas, apartamentos e terrenos à venda em Vitória da Conquista, BA, com link direto para o anúncio original.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ink:#0C2A2B; --text:#2B3F40; --muted:#5C7071; --bg:#F4F7F5; --panel:#FFFFFF; --line:#DCE5E2;
+  --teal:#0F7C7A; --teal-d:#0A5C5A; --sun:#F2B84B; --on-sun:#2A1E00; --hero1:#0C3B3C; --hero2:#0F7C7A;
+  --hill1:#0A5C5A; --hill2:#0C4A4B; --glass:rgba(244,247,245,.82); --shadow:0 18px 40px -18px rgba(12,42,43,.35);
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px); color-scheme:light;
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);scroll-behavior:smooth}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ink:#EAF4F2; --text:#C5D5D3; --muted:#8FA6A4; --bg:#0A1619; --panel:#112126; --line:#223840;
+  --teal:#4FC3BF; --teal-d:#7DDAD6; --hero1:#071C1F; --hero2:#0E4A4B; --hill1:#0E3A3C; --hill2:#0A2C2F;
+  --glass:rgba(10,22,25,.82); --shadow:0 18px 40px -18px rgba(0,0,0,.7); color-scheme:dark}}
+:root[data-theme="dark"]{--ink:#EAF4F2; --text:#C5D5D3; --muted:#8FA6A4; --bg:#0A1619; --panel:#112126; --line:#223840;
+  --teal:#4FC3BF; --teal-d:#7DDAD6; --hero1:#071C1F; --hero2:#0E4A4B; --hill1:#0E3A3C; --hill2:#0A2C2F;
+  --glass:rgba(10,22,25,.82); --shadow:0 18px 40px -18px rgba(0,0,0,.7); color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--text);font:400 16px/1.6 "Public Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Bricolage Grotesque","Public Sans",system-ui,sans-serif;color:var(--ink);margin:0;line-height:1.08;letter-spacing:-.02em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+
+/* header */
+.top{position:sticky;top:0;z-index:20;background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+.logo{font:800 21px "Bricolage Grotesque",sans-serif;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:9px;letter-spacing:-.03em}
+.logo i{width:28px;height:28px;border-radius:9px;background:var(--teal);display:grid;place-items:center}
+.logo i svg{width:16px;height:16px}
+.logo span{color:var(--teal)}
+nav{display:flex;align-items:center;gap:6px}
+nav a{font-weight:500;text-decoration:none;padding:8px 12px;border-radius:999px;font-size:15px}
+nav a:hover{background:var(--line)}
+nav a.cta{background:var(--ink);color:var(--bg)}
+nav a.cta:hover{background:var(--teal);color:#fff}
+@media(max-width:560px){nav a:not(.cta){display:none}}
+
+/* hero */
+.hero{position:relative;background:linear-gradient(165deg,var(--hero1),var(--hero2));color:#fff;overflow:hidden;padding:64px 0 150px;margin-top:-1px}
+.hero .sun{position:absolute;right:12%;top:46px;width:120px;height:120px;border-radius:50%;background:var(--sun);opacity:.95}
+.hero svg.hills{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:150px}
+.hero .wrap{position:relative}
+.hero h1{color:#fff;font-size:clamp(38px,7.2vw,76px);font-weight:800;max-width:11em}
+.hero p{max-width:32em;font-size:18px;margin:18px 0 0;color:rgba(255,255,255,.86)}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.pills span{font-size:14px;font-weight:500;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22)}
+
+/* search */
+.search{position:relative;margin:-96px auto 0;background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:20px;box-shadow:var(--shadow);display:grid;gap:16px}
+fieldset{border:0;padding:0;margin:0}
+legend,label.l{font-weight:600;font-size:14px;color:var(--ink);margin-bottom:8px;display:block;padding:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips input{position:absolute;opacity:0}
+.chips label{border:1.5px solid var(--line);border-radius:999px;padding:9px 18px;cursor:pointer;font-weight:500;background:var(--bg);transition:background .15s,color .15s,border-color .15s}
+.chips label:hover{border-color:var(--teal)}
+.chips input:checked+label{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.chips input:focus-visible+label{outline:3px solid var(--sun);outline-offset:2px}
+select,input[type=text],input[type=tel]{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:14px;padding:12px 14px}
+select:focus,input:focus{outline:3px solid var(--sun);outline-offset:1px;border-color:var(--teal)}
+.sel{display:grid;gap:14px}
+@media(min-width:760px){.search{grid-template-columns:1.3fr 1fr 1fr;align-items:end}.sel{display:contents}}
+
+/* listings */
+section{padding:48px 0 8px}
+.head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:22px;flex-wrap:wrap}
+.head h2{font-size:clamp(28px,4vw,40px)}
+.head p{margin:6px 0 0;color:var(--muted);max-width:34em}
+.sort{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
+.sort select{width:auto;padding:9px 12px;border-radius:12px}
+#count{font-weight:600;color:var(--ink)}
+.grid{list-style:none;margin:0;padding:0;display:grid;gap:20px;grid-template-columns:repeat(auto-fill,minmax(285px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.card svg.pic{display:block;width:100%;height:auto;aspect-ratio:16/10}
+.badge{position:absolute;left:12px;top:12px;background:var(--panel);color:var(--ink);font-weight:600;font-size:13px;padding:4px 12px;border-radius:999px}
+.pw{position:relative}
+.cb{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.price{font:800 26px "Bricolage Grotesque",sans-serif;color:var(--ink);letter-spacing:-.02em}
+.price small{font:500 13px "Public Sans",sans-serif;color:var(--muted);letter-spacing:0;margin-left:6px}
+.card h3{font-size:18px;line-height:1.25;letter-spacing:-.01em}
+.loc{color:var(--muted);font-size:14px}
+.specs{display:flex;gap:14px;font-size:14px;color:var(--text);margin-top:2px;flex-wrap:wrap}
+.specs span{display:inline-flex;align-items:center;gap:5px}
+.specs svg{width:16px;height:16px;stroke:var(--teal);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.foot{margin-top:auto;padding-top:14px;display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1px dashed var(--line)}
+.src{font-size:13px;color:var(--muted);line-height:1.3}
+.src b{display:block;color:var(--ink);font-weight:600}
+.go{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-weight:600;font-size:14px;padding:9px 14px;border-radius:12px;background:var(--sun);color:var(--on-sun);white-space:nowrap}
+.go:hover{filter:brightness(.95)}
+.go svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.empty{grid-column:1/-1;padding:36px;text-align:center;color:var(--muted);background:var(--panel);border:1px dashed var(--line);border-radius:22px}
+
+/* how */
+.how{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.how div{padding:22px;border-radius:20px;background:var(--panel);border:1px solid var(--line)}
+.how h3{font-size:20px;margin-bottom:8px}
+.how p{margin:0;color:var(--muted)}
+
+/* contact */
+.contact{background:var(--hero1);color:#fff;border-radius:28px;padding:30px;display:grid;gap:22px;position:relative;overflow:hidden}
+.contact h2{color:#fff;font-size:clamp(26px,4vw,38px)}
+.contact p{margin:10px 0 0;color:rgba(255,255,255,.82)}
+.contact label.l{color:#fff}
+.contact input{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.25)}
+.contact input::placeholder{color:rgba(255,255,255,.5)}
+.btn{font:600 16px "Public Sans",sans-serif;border:0;border-radius:14px;padding:14px 20px;cursor:pointer;background:var(--sun);color:var(--on-sun);width:100%}
+.btn:hover{filter:brightness(.95)}
+.f{display:grid;gap:12px}
+#ok{display:none;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.14);font-weight:500}
+.err{color:#FFB4AE;font-size:13px;min-height:1em;margin-top:4px}
+@media(min-width:800px){.contact{grid-template-columns:1fr 1fr;padding:44px;align-items:center}}
+footer{padding:36px 0 44px;color:var(--muted);font-size:14px}
+footer p{max-width:60em;margin:0 0 8px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{transition:none}.card:hover{transform:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="#topo"><i><svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"><path d="M2 8 8 2.5 14 8v5.5H2z"/></svg></i>Planalto<span>Imóveis</span></a>
+  <nav aria-label="Principal"><a href="#imoveis">Imóveis</a><a href="#como">Como funciona</a><a class="cta" href="#contato">Falar com corretor</a></nav>
+</div></header>
+
+<main id="topo">
+<div class="hero">
+  <div class="sun" aria-hidden="true"></div>
+  <div class="wrap">
+    <h1>Seu próximo endereço em Vitória da Conquista</h1>
+    <p>Anúncios reais de casas, apartamentos e terrenos da cidade. Filtre por tipo, bairro e valor, e abra o anúncio original com um toque.</p>
+    <div class="pills"><span>Candeias</span><span>Boa Vista</span><span>Primavera</span><span>Alto Maron</span><span>Centro</span></div>
+  </div>
+  <svg class="hills" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true"><path d="M0 80C200 20 380 30 560 70s380 50 560 0 240-30 320-10v110H0z" fill="var(--hill1)" opacity=".7"/><path d="M0 110C220 60 420 70 640 100s420 30 800-20v70H0z" fill="var(--bg)"/></svg>
+</div>
+
+<div class="wrap">
+  <form class="search" id="filtros" onsubmit="return false" aria-label="Filtrar imóveis">
+    <fieldset>
+      <legend>Tipo de imóvel</legend>
+      <div class="chips">
+        <input type="radio" name="tipo" id="t0" value="" checked><label for="t0">Todos</label>
+        <input type="radio" name="tipo" id="t1" value="Casa"><label for="t1">Casas</label>
+        <input type="radio" name="tipo" id="t2" value="Apartamento"><label for="t2">Apartamentos</label>
+        <input type="radio" name="tipo" id="t3" value="Terreno"><label for="t3">Terrenos</label>
+      </div>
+    </fieldset>
+    <div class="sel">
+      <div><label class="l" for="bairro">Bairro</label><select id="bairro"><option value="">Todos os bairros</option></select></div>
+      <div><label class="l" for="max">Valor máximo</label>
+        <select id="max"><option value="0">Sem limite</option><option value="150000">Até R$ 150 mil</option><option value="300000">Até R$ 300 mil</option><option value="500000">Até R$ 500 mil</option><option value="1000000">Até R$ 1 milhão</option></select></div>
+    </div>
+  </form>
+
+  <section id="imoveis" aria-labelledby="h-imoveis">
+    <div class="head">
+      <div><h2 id="h-imoveis">Imóveis à venda</h2><p><span id="count" aria-live="polite"></span> encontrados em portais e imobiliárias da cidade.</p></div>
+      <label class="sort">Ordenar<select id="ord"><option value="a">Menor preço</option><option value="d">Maior preço</option><option value="m">Maior área</option></select></label>
+    </div>
+    <ul class="grid" id="lista"></ul>
+  </section>
+
+  <section id="como" aria-labelledby="h-como">
+    <div class="head"><h2 id="h-como">Como funciona</h2></div>
+    <div class="how">
+      <div><h3>Você escolhe</h3><p>Filtre por tipo, bairro e valor para ver só o que cabe no seu plano.</p></div>
+      <div><h3>Abre o anúncio</h3><p>Cada cartão leva ao anúncio original, com fotos, endereço e dados do anunciante.</p></div>
+      <div><h3>Conta com um corretor</h3><p>Se quiser ajuda com visita, financiamento e documentação, deixe seu contato abaixo.</p></div>
+    </div>
+  </section>
+
+  <section id="contato" aria-labelledby="h-contato">
+    <form class="contact" id="form" novalidate>
+      <div><h2 id="h-contato">Fale com um corretor</h2><p>Deixe nome e telefone. Retornamos em até um dia útil.</p></div>
+      <div class="f">
+        <div><label class="l" for="nome">Nome</label><input type="text" id="nome" autocomplete="name"><div class="err" id="e-nome"></div></div>
+        <div><label class="l" for="tel">Telefone com DDD</label><input type="tel" id="tel" autocomplete="tel" placeholder="(77) 90000-0000"><div class="err" id="e-tel"></div></div>
+        <button class="btn" type="submit">Enviar contato</button>
+        <div id="ok" role="status">Contato enviado. Em breve um corretor vai ligar para você.</div>
+      </div>
+    </form>
+  </section>
+</div>
+</main>
+
+<footer><div class="wrap">
+  <p>Os imóveis desta página são anúncios de terceiros (ZAP Imóveis, Casa Mineira, Trovit, Chaves na Mão, Loft e imobiliárias locais), consultados em 02/11/2026. Preços e disponibilidade mudam a qualquer momento: confirme no anúncio original antes de qualquer decisão.</p>
+  <p>Planalto Imóveis é um projeto de demonstração e não representa nenhuma das imobiliárias citadas.</p>
+</div></footer>
+
+<script>
+var Z="https://www.zapimoveis.com.br/", CM="https://www.casamineira.com.br/venda/casa/", TV="https://imoveis.trovit.com.br/", CN="https://www.chavesnamao.com.br/terrenos-a-venda/ba-vitoria-da-conquista/";
+var imoveis=[
+ {t:"Casa",n:"Casa de condomínio com piscina",b:"Primavera",q:3,a:77,p:420000,f:"ZAP Imóveis",u:Z+"imovel/venda-casa-de-condominio-3-quartos-com-piscina-primavera-vitoria-da-conquista-ba-77m2-id-2832314831/"},
+ {t:"Casa",n:"Casa com 2 quartos no Centro",b:"Centro",q:2,a:177,p:560000,f:"ZAP Imóveis",u:Z+"imovel/venda-casa-2-quartos-centro-vitoria-da-conquista-ba-177m2-id-2900073509/"},
+ {t:"Casa",n:"Casa no Conveima 1, com 1 suíte",b:"Brasil",q:3,a:250,p:180000,f:"Casa Mineira",u:CM+"brasil_vitoria-da-conquista_ba"},
+ {t:"Casa",n:"Casa nova no Conveima 1 (aceita Minha Casa, Minha Vida)",b:"Brasil",q:3,a:125,p:275000,f:"Trovit",u:TV+"casa-novo-horizonte-mesorregi%C3%A3o-centro-sul-baiano-3-quartos"},
+ {t:"Casa",n:"Casa com 2 quartos e 1 vaga",b:"Bateias",q:2,a:100,p:240000,f:"Casa Mineira",u:CM+"bateias_vitoria-da-conquista_ba"},
+ {t:"Casa",n:"Casa de alto padrão, Condomínio Horto Premier",b:"Morada dos Pássaros",q:3,a:200,p:560000,f:"Casa Mineira",u:CM+"vitoria-da-conquista_ba"},
+ {t:"Casa",n:"Casa na Rua Sifredo Pedral Sampaio",b:"Centro",q:3,a:361,p:780000,f:"Casa Mineira",u:CM+"centro_vitoria-da-conquista_ba"},
+ {t:"Apartamento",n:"Apartamento na Av. Franklin Ferraz",b:"Candeias",q:3,a:93,p:350000,f:"Marcelo Leal Imóveis, via ZAP",u:Z+"venda/imoveis/ba+vitoria-da-conquista/avenida-franklin-ferraz/"},
+ {t:"Apartamento",n:"Apartamento com suíte e 1 vaga",b:"Candeias",q:2,a:70,p:285000,f:"Mark Imóveis, via ZAP",u:Z+"venda/apartamentos/ba+vitoria-da-conquista++candeias/2-quartos/"},
+ {t:"Apartamento",n:"Apartamento de 2 quartos com 1 vaga",b:"Candeias",q:2,a:64,p:260000,f:"Locar Imóvel, via ZAP",u:Z+"venda/apartamentos/ba+vitoria-da-conquista++candeias/2-quartos/"},
+ {t:"Apartamento",n:"Cidadella Residence, 5º andar mobiliado",b:"Alto Maron",q:2,a:62,p:299000,f:"Trovit",u:TV+"residencial-vitoria-conquista/23"},
+ {t:"Apartamento",n:"Apartamento com 2 suítes na Av. Arthur Seixas",b:"Candeias",q:4,a:340,p:2000000,f:"Mark Imóveis, via ZAP",u:Z+"venda/imoveis/ba+vitoria-da-conquista/avenida-arthur-seixas/"},
+ {t:"Terreno",n:"Terreno em condomínio",b:"Zabelê",q:0,a:250,p:75000,f:"Locar Imóvel, via Chaves na Mão",u:CN},
+ {t:"Terreno",n:"Terreno na Av. Filipinas, 255",b:"Felícia",q:0,a:250,p:200000,f:"Chaves na Mão",u:CN},
+ {t:"Terreno",n:"Terreno na Rua João Paulo II, 13",b:"Candeias",q:0,a:360,p:225000,f:"Chaves na Mão",u:CN},
+ {t:"Terreno",n:"Terreno na Rua Doutor Saul Quadros Filho",b:"Boa Vista",q:0,a:1000,p:550000,pm:550,f:"Loft",u:"https://loft.com.br/imovel/terreno-rua-doutor-saul-quadros-filho-boa-vista-vitoria-da-conquista/qf2udpc6"}
+];
+var C=[["#BFE3E0","#F7E7C2"],["#C9DDF0","#F6E3D0"],["#D5E6C8","#F4ECC4"],["#E1D3EA","#F7DFD2"]];
+function brl(v){return v.toLocaleString("pt-BR",{style:"currency",currency:"BRL",maximumFractionDigits:0})}
+function pic(t,i){
+ var c=C[i%4],g="g"+i;
+ var s='<svg class="pic" viewBox="0 0 320 200" role="img" aria-label="Ilustração: '+t.toLowerCase()+'"><defs><linearGradient id="'+g+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+c[0]+'"/><stop offset="1" stop-color="'+c[1]+'"/></linearGradient></defs><rect width="320" height="200" fill="url(#'+g+')"/><circle cx="262" cy="46" r="20" fill="#F2B84B"/><path d="M0 150C60 110 120 120 180 140s100 0 140-20v80H0z" fill="#0F7C7A" opacity=".35"/><path d="M0 170C80 140 160 150 220 165s70 0 100-10v45H0z" fill="#0A5C5A" opacity=".8"/>';
+ if(t==="Casa")s+='<path d="M96 150V98l64-44 64 44v52z" fill="#fff"/><path d="M84 102 160 46l76 56" fill="none" stroke="#0C2A2B" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/><rect x="146" y="116" width="28" height="34" rx="3" fill="#F2B84B"/><rect x="108" y="112" width="22" height="20" rx="2" fill="#0F7C7A" opacity=".5"/><rect x="190" y="112" width="22" height="20" rx="2" fill="#0F7C7A" opacity=".5"/>';
+ else if(t==="Apartamento"){s+='<rect x="118" y="30" width="84" height="120" rx="4" fill="#fff"/><g fill="#0F7C7A" opacity=".55">';for(var r=0;r<4;r++)for(var k=0;k<3;k++)s+='<rect x="'+(128+k*26)+'" y="'+(42+r*24)+'" width="16" height="14" rx="2"/>';s+='</g><rect x="150" y="126" width="20" height="24" fill="#F2B84B"/><rect x="82" y="86" width="40" height="64" rx="3" fill="#fff" opacity=".85"/><rect x="198" y="70" width="40" height="80" rx="3" fill="#fff" opacity=".85"/>'}
+ else s+='<path d="M50 168 96 118h128l46 50z" fill="#fff" opacity=".9"/><path d="M50 168 96 118h128l46 50z" fill="none" stroke="#0C2A2B" stroke-width="3" stroke-dasharray="8 6"/><path d="M160 118v-26" stroke="#0C2A2B" stroke-width="3"/><path d="M160 92h26l-6 8 6 8h-26z" fill="#F2B84B"/>';
+ return s+'</svg>';
+}
+var ic={q:'<svg viewBox="0 0 24 24"><path d="M3 18v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7M3 18h18M3 14h18M6 9V6h12v3"/></svg>',a:'<svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 12h16M12 4v16"/></svg>'};
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+var sel=document.getElementById("bairro");
+imoveis.map(function(i){return i.b}).filter(function(b,k,a){return a.indexOf(b)===k}).sort().forEach(function(b){var o=document.createElement("option");o.value=b;o.textContent=b;sel.appendChild(o)});
+function render(){
+ var tipo=document.querySelector('input[name="tipo"]:checked').value,max=+document.getElementById("max").value,bai=sel.value,o=document.getElementById("ord").value;
+ var r=imoveis.filter(function(i){return(!tipo||i.t===tipo)&&(!max||i.p<=max)&&(!bai||i.b===bai)});
+ r.sort(function(x,y){return o==="d"?y.p-x.p:o==="m"?y.a-x.a:x.p-y.p});
+ document.getElementById("count").textContent=r.length+(r.length===1?" imóvel":" imóveis");
+ var l=document.getElementById("lista");
+ if(!r.length){l.innerHTML='<li class="empty">Nenhum imóvel com esses filtros. Aumente o valor máximo, troque o bairro ou escolha outro tipo.</li>';return}
+ l.innerHTML=r.map(function(i){
+  var sp=(i.t==="Terreno"?"":'<span>'+ic.q+i.q+(i.q===1?" quarto":" quartos")+'</span>')+'<span>'+ic.a+i.a.toLocaleString("pt-BR")+' m²</span>';
+  return '<li class="card"><div class="pw">'+pic(i.t,imoveis.indexOf(i))+'<span class="badge">'+i.t+'</span></div><div class="cb"><div class="price">'+brl(i.p)+(i.pm?'<small>R$ '+i.pm+'/m²</small>':'')+'</div><h3>'+esc(i.n)+'</h3><div class="loc">'+esc(i.b)+', Vitória da Conquista - BA</div><div class="specs">'+sp+'</div><div class="foot"><div class="src">Anúncio em<b>'+esc(i.f)+'</b></div><a class="go" href="'+i.u+'" target="_blank" rel="noopener noreferrer">Ver anúncio<svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg><span style="position:absolute;left:-9999px"> (abre em nova aba)</span></a></div></div></li>';
+ }).join("");
+}
+document.getElementById("filtros").addEventListener("change",render);
+document.getElementById("ord").addEventListener("change",render);
+render();
+
+document.getElementById("form").addEventListener("submit",function(e){
+ e.preventDefault();
+ var n=document.getElementById("nome").value.trim(),t=document.getElementById("tel").value.replace(/\D/g,"");
+ var en=n.length<2?"Informe seu nome.":"",et=(t.length<10||t.length>11)?"Informe o telefone com DDD, com 10 ou 11 números.":"";
+ document.getElementById("e-nome").textContent=en;document.getElementById("e-tel").textContent=et;
+ document.getElementById("ok").style.display=(en||et)?"none":"block";
+});
+</script>
+</body>
+</html>
